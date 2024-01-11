@@ -9,9 +9,7 @@
 # function, configured to evaluate pricing strategies using training and testing data.
 # The genetic operations, including crossover (mate) and mutation, are performed on
 # individuals representing pricing parameter sets. The selection process is based on
-# tournament selection. This toolbox is instrumental in running the genetic algorithm
-# to evolve pricing strategies that enhance performance on the given pricing optimization
-# problem.
+# a Darwinian tournament selection.
 
 import pandas as pd
 import numpy as np
