@@ -3,15 +3,14 @@
 # Igor Mol <igor.mol@makes.ai>
 
 # In pricing optimization, Random Forests and Decision Trees are utilized to 
-# model the relationship between product prices and relevant features. 
+# model the relationship between product prices and sales history. 
 # Decision Trees serve as the basic building blocks, capturing the 
-# hierarchical decision-making process based on input features. Random 
+# hierarchical decision-making process based on inventory inputs. Random 
 # Forests, on the other hand, utilize an ensemble of Decision Trees to 
-# enhance predictive accuracy and robustness. For instance, in the 
-# 'objective_function' here, a Random Forest is trained with various 
+# enhance predictive accuracy of the former. For instance, in function 
+# 'objective_function', a Random Forest is trained with various 
 # 'price' values to maximize the R-squared metric, providing an optimized 
-# price parameter for pricing strategies, considering the interplay 
-# between product attributes and pricing.
+# price parameter for many alternative pricing strategies.
 
 import pandas as pd
 import numpy as np
@@ -178,7 +177,6 @@ def run_optimization(X_train, X_test, y_train, y_test):
     return optimal_price
 
 def main():
-
     X, y = extract_features_and_target(df)
     X_train, X_test, y_train, y_test = training_testing_subsets(X, y, test_size=0.2, random_state=42)
     optimal_price = run_optimization(X_train, X_test, y_train, y_test)
