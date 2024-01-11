@@ -9,10 +9,7 @@
 # value, ensuring accurate predictions. The process involves iteratively fitting
 # decision trees, each correcting the errors of the previous ones. The 'optimize_price'
 # function utilizes the Nelder-Mead optimization method to find the optimal price
-# parameter that maximizes the R-squared value, leading to an effective pricing
-# strategy. This approach allows businesses to adaptively adjust prices to
-# enhance overall revenue and customer satisfaction.
-
+# parameter that maximizes the R-squared value.
 
 import pandas as pd
 import numpy as np
@@ -211,7 +208,6 @@ def calculate_variance(y):
     return np.var(y)
 
 def main():
-
     # Extract features and target variable
     X, y = extract_features_target(df)
 
