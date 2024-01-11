@@ -10,9 +10,6 @@
 # evaluating and selecting individuals with better objective function values,
 # differential evolution efficiently navigates the solution space, seeking the
 # parameter configuration that maximizes or minimizes the specified criterion.
-# This optimization approach is particularly useful for fine-tuning pricing
-# strategies in a data-driven manner, ensuring optimal performance based on
-# given training and testing datasets.
 
 import pandas as pd
 import numpy as np
@@ -153,7 +150,6 @@ def optimize_price(X_train, X_test, y_train, y_test, lower_bound, upper_bound):
     
     # Returning the optimized value of the parameter
     return result_de.x[0]
-
     
 # extract_features_and_target:
 # This function extracts features and target from a DataFrame representing sales data.
@@ -172,7 +168,6 @@ def extract_features_and_target(df):
     return X, y
 
 def main():
-    # Assuming df is your DataFrame
     X, y = extract_features_and_target(df)
 
     X_train, X_test, y_train, y_test = split_data(X, y)
