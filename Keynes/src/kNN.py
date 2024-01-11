@@ -10,8 +10,7 @@
 # contribute to predicting the target variable (month from shipping dates) for the new
 # product. This process is repeated for each product in the testing set. The optimized
 # price is then determined by minimizing a predefined objective function, specifically
-# a negative R-squared value. This optimized price aims to enhance the overall efficiency
-# of the price optimization strategy by maximizing predictive accuracy.
+# a negative R-squared value.
 
 import pandas as pd
 import numpy as np
@@ -144,11 +143,8 @@ def optimize_price(X_train, X_test, y_train, y_test, initial_guess):
     
     # Extracting the optimized 'price' parameter from the result
     return result.x[0]
-
-
+    
 def main():
-    # Assuming df is your DataFrame
-
     X, y = extract_features_target(df)
     X_train, X_test, y_train, y_test = split_data(X, y)
 
