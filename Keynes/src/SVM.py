@@ -2,22 +2,18 @@
 
 # Igor Mol <igor.mol@makes.ai>
 
-# SVM (Support Vector Machine) is employed for price optimization to enhance
-# decision-making. In this context, SVM acts as a regression model, learning
-# patterns in the data to predict optimal prices. The SVM model is trained
-# using input features like 'order_item_id,' 'price,' and
-# 'product_category_name_english.' The 'shipping_limit_date' is utilized as
-# the target variable, with months extracted for simplicity.
+# SVM (Support Vector Machine) is employed for price optimization. The SVM
+# acts as a regression model, learning patterns in the data to predict 
+# optimal prices. The SVM model is trained using input features like 
+# 'order_item_id,' 'price,' and 'product_category_name_english.' The 
+# 'shipping_limit_date' is utilized as the target variable, with months
+# extracted for simplicity.
 
 # The optimization process involves adjusting the 'price' parameter with
 # the Nelder-Mead method. The SVM regression model is manually implemented
 # using gradient descent to find the optimal parameters, considering a
 # regularization term (C). The negative R-squared value is minimized during
 # optimization, providing a measure of how well the model fits the data.
-
-# The run_optimization function utilizes the scipy.optimize.minimize
-# framework to find the optimal 'price' parameter for effective price
-# optimization, facilitating better decision support in various scenarios.
 
 import pandas as pd
 import numpy as np
@@ -158,8 +154,7 @@ def run_optimization(X_train, X_test, y_train, y_test, initial_guess):
     # Run the optimization using scipy.optimize.minimize
     result = minimize(svm_regression, initial_guess, args=(X_train.copy(), y_train.copy(), X_test.copy(), y_test.copy()), method='Nelder-Mead')
     return result
-
-
+    
 def main():
 
     X, y = extract_features_target(df)
