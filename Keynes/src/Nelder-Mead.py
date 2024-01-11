@@ -12,11 +12,7 @@
 # R-squared value obtained from the linear regression model. By doing so, it
 # aims to find an optimal price point that maximizes the goodness-of-fit,
 # effectively fine-tuning the pricing strategy based on the observed
-# relationships between input features and the target variable. This combined
-# approach allows for data-driven and iterative adjustments to pricing
-# strategies, helping businesses make informed decisions for better overall
-# performance.
-
+# relationships between input features and the target variable.
 
 import pandas as pd
 import numpy as np
@@ -107,6 +103,7 @@ def train_linear_regression(X_train, y_train, alpha=1e-6):
 #   - alpha: Regularization strength (default is 1e-6).
 # Returns:
 #   - theta: Coefficients of the linear regression model.
+
 def train_linear_regression(X_train, y_train, alpha=1e-6):
     # Add a column of ones for the bias term to the input features.
     X_train = np.c_[np.ones(X_train.shape[0]), X_train]
@@ -126,6 +123,7 @@ def train_linear_regression(X_train, y_train, alpha=1e-6):
 #   - theta: Coefficients of the linear regression model.
 # Returns:
 #   - Predictions based on the input features and model coefficients.
+
 def predict(X, theta):
     # Add a column of ones for the bias term to the input features.
     X = np.c_[np.ones(X.shape[0]), X]
@@ -144,6 +142,7 @@ def predict(X, theta):
 #   - y_test: Testing set target variable.
 # Returns:
 #   - Negative R-squared value to be minimized.
+
 def objective_function(params, X_test, theta, y_test):
     # Extracting the price parameter from the optimization parameters.
     price = params[0]
@@ -171,6 +170,7 @@ def objective_function(params, X_test, theta, y_test):
 #   - max_iter: Maximum number of iterations (default is 1000).
 # Returns:
 #   - x: Estimated minimum of the objective function.
+
 def minimize_nelder_mead(func, x0, args=(), tol=1e-6, max_iter=1000):
     x = x0.copy()
     for _ in range(max_iter):
@@ -186,6 +186,7 @@ def minimize_nelder_mead(func, x0, args=(), tol=1e-6, max_iter=1000):
 #   - y_test: Testing set target variable.
 # Returns:
 #   - optimal_price: Optimal price obtained from the optimization process.
+
 def optimize_price(X_test, theta, y_test):
     # Initialize the price parameter with the mean of 'price' in the test set.
     initial_price = np.mean(X_test['price'])
@@ -219,7 +220,7 @@ def plot_scatter(X, y):
     plt.show()
 
 def main():
-    # Assuming df is your DataFrame
+
     X, y = prepare_data(df)
     X_train, X_test, y_train, y_test = custom_train_test_split(X, y, test_size=0.2, random_state=42)
 
